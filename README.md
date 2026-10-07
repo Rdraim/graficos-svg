@@ -2,13 +2,13 @@
 
 [English (United States)](README.en-US.md) · [Apoio voluntário](SUPPORT.md)
 
-## Revisão 1.1.0
+## Segurança e compatibilidade
 
 Validação anti-injeção em opções SVG, limites numéricos e rosca completa.
 
 Rótulos escapados; cores e dimensões validadas. Até 10000 itens, valores finitos dentro de MAX_SAFE_INTEGER e dimensões positivas até 1000000. Barras/roscas tratam negativos como zero; linhas preservam negativos. Rosca de 100% usa círculo completo. SVG inclui papel de imagem; forneça também título contextual e tabela textual no aplicativo. A paleta sozinha não certifica acessibilidade. Use apenas o SVG gerado, sem concatenar HTML não confiável.
 
-Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.1.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.2.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
 
 Gráficos como **SVG (string)**, sem dependência e **sem DOM**. Cada função recebe
 dados simples e devolve `<svg>…</svg>` pronto para injetar no HTML, mandar por
@@ -78,3 +78,10 @@ MIT © Rodrigo Rodrigues
 Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodrigo Rodrigues. Não inclui banco, configuração privada, logs, dados de usuários ou credenciais. Evolução coordenada significa revisar mudanças relacionadas no mesmo ciclo; não há cópia automática de arquivos privados.
 
 [Como contribuir](CONTRIBUTING.md) · [Segurança](SECURITY.md) · [Apoio voluntário](SUPPORT.md)
+
+
+## Uso prático — 1.2.0
+
+Todas as funções aceitam `titulo` e `descricao` escapados para nome e descrição acessíveis. Inclua também tabela ou resumo textual dos dados; somente cor não comunica o resultado.
+
+Exemplo executável com dados sintéticos: `node examples/uso.mjs`.

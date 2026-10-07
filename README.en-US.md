@@ -15,7 +15,7 @@ npm test
 node tools/check-public-content.mjs
 ```
 
-These imports work from the cloned repository root. To use the module in another project, install a pinned Git tag or copy the module while retaining the MIT license. This documentation does not claim an npm registry release.
+These imports work from the cloned repository root. To use the module in another project, install a pinned Git tag (v1.2.0) or copy the module while retaining the MIT license. This documentation does not claim an npm registry release.
 
 ```js
 import { barras, colunas, linha, rosca } from './src/index.js';
@@ -38,10 +38,17 @@ Labels are escaped; colors and dimensions are validated. Up to 10000 items, fini
 
 These standalone modules are inspired by work on Nexus, Rodrigo Rodrigues's independent project. They contain no private database, deployment configuration, logs, credentials or user records. Coordinated maintenance means reviewing related changes in the same release cycle, not automatically copying private source files.
 
-## Version 1.1.0
+## Security and compatibility
 
 SVG option injection defenses, numeric limits and full-ring rendering.
 
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.md)
 
 MIT © Rodrigo Rodrigues
+
+
+## Practical use — 1.2.0
+
+All functions accept escaped `titulo` and `descricao` for accessible names and descriptions. Also provide a data table or text summary; color alone does not communicate the result.
+
+Runnable example with synthetic data: `node examples/uso.mjs`.
