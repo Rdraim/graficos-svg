@@ -12,7 +12,7 @@ Validação anti-injeção em opções SVG, limites numéricos e rosca completa.
 
 Rótulos escapados; cores e dimensões validadas. Até 10000 itens, valores finitos dentro de MAX_SAFE_INTEGER e dimensões positivas até 1000000. Barras/roscas tratam negativos como zero; linhas preservam negativos. Rosca de 100% usa círculo completo. SVG inclui papel de imagem; forneça também título contextual e tabela textual no aplicativo. A paleta sozinha não certifica acessibilidade. Use apenas o SVG gerado, sem concatenar HTML não confiável.
 
-Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.2.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.2.1) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
 
 Gráficos como **SVG (string)**, sem dependência e **sem DOM**. Cada função recebe
 dados simples e devolve `<svg>…</svg>` pronto para injetar no HTML, mandar por
@@ -23,7 +23,7 @@ Barras, colunas, linha e rosca. Paleta categórica configurável.
 ## Instalação
 
 ```bash
-git clone https://github.com/techrodrigo21-ux/graficos-svg.git
+git clone https://github.com/Rdraim/graficos-svg.git
 cd graficos-svg
 npm test
 ```
@@ -106,7 +106,7 @@ Sou **Rodrigo Rodrigues**, criador do **Nexus** e destes projetos de código abe
 
 <p>
   <a href="#apoie-com-pix"><img src="assets/support/pix-pt-br.svg" width="190" height="44" alt="Apoiar com Pix"></a>
-  <a href="https://github.com/techrodrigo21-ux/graficos-svg/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou"><img src="assets/support/comment-pt-br.svg" width="210" height="44" alt="Deixar um comentário"></a>
+  <a href="https://github.com/Rdraim/graficos-svg/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou"><img src="assets/support/comment-pt-br.svg" width="210" height="44" alt="Deixar um comentário"></a>
 </p>
 
 ### Apoie com Pix
@@ -127,7 +127,7 @@ Você também pode apoiar compartilhando o projeto, relatando um problema, melho
 
 ### Seu comentário também faz diferença
 
-[Conte como o projeto te ajudou](https://github.com/techrodrigo21-ux/graficos-svg/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou). Vou gostar de saber o que você criou, o que aprendeu e o que poderia ficar mais claro para quem está começando.
+[Conte como o projeto te ajudou](https://github.com/Rdraim/graficos-svg/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou). Vou gostar de saber o que você criou, o que aprendeu e o que poderia ficar mais claro para quem está começando.
 
 O comentário é bem-vindo com ou sem doação. Preserve sua privacidade: não publique comprovantes, dados pessoais, credenciais ou informações de usuários nas Issues.
 

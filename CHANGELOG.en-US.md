@@ -6,6 +6,10 @@
 
 # 1.2.0 — 2026-10-07
 
+## 1.2.1 — 2026-10-07
+
+Rdraim identity, visual presentation, compatibility review and more efficient history guard. Runtime API preserved.
+
 All functions accept escaped `titulo` and `descricao` for accessible names and descriptions. Also provide a data table or text summary; color alone does not communicate the result.
 
 # 1.1.0 — 2026-10-07
