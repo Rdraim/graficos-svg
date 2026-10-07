@@ -46,7 +46,7 @@ These standalone modules are inspired by work on Nexus, Rodrigo Rodrigues's inde
 
 SVG option injection defenses, numeric limits and full-ring rendering.
 
-[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+[Contributing](CONTRIBUTING.en-US.md) · [Security](SECURITY.en-US.md)
 
 MIT © Rodrigo Rodrigues
 
