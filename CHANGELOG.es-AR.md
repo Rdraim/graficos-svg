@@ -6,10 +6,10 @@
 
 # 1.2.0 — 2026-10-07
 
-Todas as funções aceitam `titulo` e `descricao` escapados para nome e descrição acessíveis. Inclua também tabela ou resumo textual dos dados; somente cor não comunica o resultado.
+Todas las funciones aceptan `titulo` y `descricao`, escapados, para nombres y descripciones accesibles. Agregá una tabla de datos o resumen textual; el color por sí solo no comunica el resultado.
 
 # 1.1.0 — 2026-10-07
 
-Validação anti-injeção em opções SVG, limites numéricos e rosca completa.
+Protección frente a inyección en opciones SVG, límites numéricos y anillos completos.
 
-Documentação PT-BR/EN-US, apoio voluntário ainda sem canal de pagamento e verificações de publicação.
+Documentación en portugués brasileño e inglés de Estados Unidos, apoyo voluntario todavía sin canal de pago en esa versión y verificaciones de publicación.
