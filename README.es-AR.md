@@ -6,6 +6,10 @@
 
 # graficos-svg
 
+<!-- public-badges:start -->
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/graficos-svg/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/graficos-svg/releases)
+<!-- public-badges:end -->
+
 Gráficos SVG como cadenas, sin dependencias, para navegador y renderizado en servidor: barras, columnas, líneas y anillos.
 
 ## Empezá acá

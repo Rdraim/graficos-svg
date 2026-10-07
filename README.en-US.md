@@ -6,6 +6,10 @@
 
 # graficos-svg
 
+<!-- public-badges:start -->
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/graficos-svg/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/graficos-svg/releases)
+<!-- public-badges:end -->
+
 Dependency-free SVG string charts for browsers and server rendering: bars, columns, lines and donuts.
 
 ## Start here
