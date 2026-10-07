@@ -6,6 +6,10 @@
 
 # 1.2.0 — 2026-10-07
 
+## 1.2.1 — 2026-10-07
+
+Identidad Rdraim, presentación gráfica, revisión de compatibilidad y control de historial más eficiente. API de ejecución conservada.
+
 Todas las funciones aceptan `titulo` y `descricao`, escapados, para nombres y descripciones accesibles. Agregá una tabla de datos o resumen textual; el color por sí solo no comunica el resultado.
 
 # 1.1.0 — 2026-10-07
