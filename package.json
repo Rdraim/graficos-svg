@@ -1,0 +1,15 @@
+{
+  "name": "graficos-svg",
+  "version": "1.0.0",
+  "description": "Graficos como SVG (string): barras, colunas, linha e rosca. Sem dependencia, sem DOM. Funciona no navegador, no servidor (SSR) e em qualquer framework.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "files": ["src"],
+  "scripts": { "test": "node --test" },
+  "keywords": ["svg", "chart", "charts", "graficos", "dataviz", "ssr", "donut", "bar-chart", "no-dependencies"],
+  "author": "Rodrigo Rodrigues",
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "repository": { "type": "git", "url": "git+https://github.com/techrodrigo21-ux/graficos-svg.git" }
+}
