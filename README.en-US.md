@@ -1,6 +1,6 @@
 # graficos-svg
 
-[Brazilian Portuguese](README.md) · [Voluntary support](SUPPORT.md)
+[Brazilian Portuguese](README.md) · [Voluntary support](SUPPORT.en-US.md)
 
 Dependency-free SVG string charts for browsers and server rendering: bars, columns, lines and donuts.
 
@@ -42,7 +42,7 @@ These standalone modules are inspired by work on Nexus, Rodrigo Rodrigues's inde
 
 SVG option injection defenses, numeric limits and full-ring rendering.
 
-[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.md)
+[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.en-US.md)
 
 MIT © Rodrigo Rodrigues
 
@@ -52,3 +52,10 @@ MIT © Rodrigo Rodrigues
 All functions accept escaped `titulo` and `descricao` for accessible names and descriptions. Also provide a data table or text summary; color alone does not communicate the result.
 
 Runnable example with synthetic data: `node examples/uso.mjs`.
+
+
+## ☕ Support this work
+
+If this project helped you, consider buying me a coffee. Any amount is welcome, and sharing your feedback helps too.
+
+[![Support via Pix](assets/support/pix-en-us.svg)](SUPPORT.en-US.md)
