@@ -78,3 +78,10 @@ MIT © Rodrigo Rodrigues
 Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodrigo Rodrigues. Não inclui banco, configuração privada, logs, dados de usuários ou credenciais. Evolução coordenada significa revisar mudanças relacionadas no mesmo ciclo; não há cópia automática de arquivos privados.
 
 [Como contribuir](CONTRIBUTING.md) · [Segurança](SECURITY.md) · [Apoio voluntário](SUPPORT.md)
+
+
+## Uso prático — 1.2.0
+
+Todas as funções aceitam `titulo` e `descricao` escapados para nome e descrição acessíveis. Inclua também tabela ou resumo textual dos dados; somente cor não comunica o resultado.
+
+Exemplo executável com dados sintéticos: `node examples/uso.mjs`.

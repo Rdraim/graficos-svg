@@ -42,7 +42,7 @@ export function barras(dados = [], opcoes = {}) {
       + `<rect x="${margemRotulo}" y="${y}" width="${w}" height="${alturaBarra}" rx="3" fill="${cor(i, cores)}"/>`
       + `<text x="${margemRotulo + w + 6}" y="${y + alturaBarra / 2}" dominant-baseline="central" font-size="12" fill="#374151">${esc(d.valor)}</text>`;
   }).join('');
-  return svg(largura, altura, linhas);
+  return svg(largura, altura, linhas, opcoes);
 }
 
 /** Colunas verticais. dados: [{ rotulo, valor }]. */
@@ -62,7 +62,7 @@ export function colunas(dados = [], opcoes = {}) {
       + `<text x="${n(x + larguraCol / 2)}" y="${altura - 8}" text-anchor="middle" font-size="12">${esc(d.rotulo)}</text>`
       + `<text x="${n(x + larguraCol / 2)}" y="${y - 4}" text-anchor="middle" font-size="11" fill="#374151">${esc(d.valor)}</text>`;
   }).join('');
-  return svg(largura, altura, corpo);
+  return svg(largura, altura, corpo, opcoes);
 }
 
 /** Linha. valores: number[] (igualmente espaçados) ou [{ x, y }]. */
@@ -78,7 +78,7 @@ export function linha(valores = [], opcoes = {}) {
   const py = (y) => n(altura - 24 - ((y - minY) / (maxY - minY || 1)) * (altura - 40));
   const d = pts.map((p, i) => `${i ? 'L' : 'M'}${px(p.x)},${py(p.y)}`).join(' ');
   const bolas = pts.map((p) => `<circle cx="${px(p.x)}" cy="${py(p.y)}" r="2.5" fill="${corLinha}"/>`).join('');
-  return svg(largura, altura, `<path d="${d}" fill="none" stroke="${corLinha}" stroke-width="2"/>${bolas}`);
+  return svg(largura, altura, `<path d="${d}" fill="none" stroke="${corLinha}" stroke-width="2"/>${bolas}`, opcoes);
 }
 
 /** Rosca (donut). dados: [{ rotulo, valor }]. */
@@ -100,9 +100,9 @@ export function rosca(dados = [], opcoes = {}) {
     ang = fim;
     return `<path d="${dPath}" fill="${cor(i, cores)}"><title>${esc(d.rotulo)}: ${esc(d.valor)}</title></path>`;
   }).join('');
-  return svg(tamanho, tamanho, fatias);
+  return svg(tamanho, tamanho, fatias, opcoes);
 }
 
-function svg(largura, altura, conteudo) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico / Chart" viewBox="0 0 ${n(largura)} ${n(altura)}" font-family="system-ui, sans-serif" style="max-width:100%;height:auto;color:inherit;fill:currentColor">${conteudo}</svg>`;
+function svg(largura, altura, conteudo, { titulo = 'Gráfico / Chart', descricao = '' } = {}) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(titulo)}"${descricao ? ` aria-description="${esc(descricao)}"` : ''} viewBox="0 0 ${n(largura)} ${n(altura)}" font-family="system-ui, sans-serif" style="max-width:100%;height:auto;color:inherit;fill:currentColor"><title>${esc(titulo)}</title>${descricao ? `<desc>${esc(descricao)}</desc>` : ''}${conteudo}</svg>`;
 }

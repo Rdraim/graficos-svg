@@ -45,3 +45,10 @@ SVG option injection defenses, numeric limits and full-ring rendering.
 [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.md)
 
 MIT © Rodrigo Rodrigues
+
+
+## Practical use — 1.2.0
+
+All functions accept escaped `titulo` and `descricao` for accessible names and descriptions. Also provide a data table or text summary; color alone does not communicate the result.
+
+Runnable example with synthetic data: `node examples/uso.mjs`.
