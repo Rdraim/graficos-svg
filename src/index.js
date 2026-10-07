@@ -8,7 +8,20 @@
    Paleta categórica acessível (contraste pensado); troque por `opcoes.cores`.
    ============================================================================ */
 
-export const PALETA = ['#2563eb', '#16a34a', '#d97706', '#dc2626', '#7c3aed', '#0891b2', '#db2777', '#65a30d'];
+export const PALETA = Object.freeze(['#2563eb', '#16a34a', '#d97706', '#dc2626', '#7c3aed', '#0891b2', '#db2777', '#65a30d']);
+const numero = (v) => typeof v === 'number' && Number.isFinite(v);
+function validar(dados, opcoes, serie = false) {
+  const seguro = (v) => numero(v) && Math.abs(v) <= Number.MAX_SAFE_INTEGER;
+  if (!Array.isArray(dados) || dados.length > 10000 || dados.some((d) => serie ? !(seguro(d) || (d && seguro(d.x) && seguro(d.y))) : !(d && seguro(d.valor)))) throw new TypeError('até 10000 itens, com números finitos dentro de MAX_SAFE_INTEGER');
+  for (const k of ['largura', 'altura', 'alturaBarra', 'gap', 'margemRotulo', 'tamanho', 'espessura']) {
+    if (opcoes[k] !== undefined && (!numero(opcoes[k]) || opcoes[k] <= 0 || opcoes[k] > 1000000)) throw new TypeError(`${k} precisa ser positivo, finito e no máximo 1000000`);
+  }
+  const cores = opcoes.cores ?? PALETA;
+  if (!Array.isArray(cores) || !cores.length) throw new TypeError('paleta vazia/inválida');
+  for (const c of [...cores, opcoes.cor ?? PALETA[0]]) {
+    if (typeof c !== 'string' || !/^(?:#(?:[0-9a-f]{3}|[0-9a-f]{4}|[0-9a-f]{6}|[0-9a-f]{8})|[a-z]+|(?:rgb|rgba|hsl|hsla)\([0-9.,% +\/-]+\))$/i.test(c)) throw new TypeError('cor inválida');
+  }
+}
 
 const esc = (s) => String(s ?? '').replace(/[<>&"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;' }[c]));
 const n = (v) => Math.round(v * 100) / 100;
@@ -16,9 +29,11 @@ const cor = (i, cores = PALETA) => cores[i % cores.length];
 
 /** Barras horizontais. dados: [{ rotulo, valor }]. */
 export function barras(dados = [], opcoes = {}) {
+  validar(dados, opcoes);
   const { largura = 480, alturaBarra = 24, gap = 10, margemRotulo = 120, cores } = opcoes;
   const max = Math.max(1, ...dados.map((d) => d.valor));
   const larguraBarra = largura - margemRotulo - 48;
+  if (larguraBarra <= 0) throw new TypeError('largura insuficiente para rótulos');
   const altura = dados.length * (alturaBarra + gap) + gap;
   const linhas = dados.map((d, i) => {
     const y = gap + i * (alturaBarra + gap);
@@ -32,8 +47,10 @@ export function barras(dados = [], opcoes = {}) {
 
 /** Colunas verticais. dados: [{ rotulo, valor }]. */
 export function colunas(dados = [], opcoes = {}) {
+  validar(dados, opcoes);
   const { largura = 480, altura = 260, cores } = opcoes;
   const base = altura - 28, topo = 12;
+  if (base <= topo) throw new TypeError('altura insuficiente');
   const max = Math.max(1, ...dados.map((d) => d.valor));
   const passo = largura / Math.max(1, dados.length);
   const larguraCol = passo * 0.6;
@@ -50,7 +67,9 @@ export function colunas(dados = [], opcoes = {}) {
 
 /** Linha. valores: number[] (igualmente espaçados) ou [{ x, y }]. */
 export function linha(valores = [], opcoes = {}) {
+  validar(valores, opcoes, true);
   const { largura = 480, altura = 220, cor: corLinha = PALETA[0] } = opcoes;
+  if (largura <= 40 || altura <= 40) throw new TypeError('dimensões insuficientes');
   const pts = valores.map((v, i) => (typeof v === 'number' ? { x: i, y: v } : v));
   const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
   const minX = Math.min(...xs), maxX = Math.max(...xs);
@@ -64,12 +83,16 @@ export function linha(valores = [], opcoes = {}) {
 
 /** Rosca (donut). dados: [{ rotulo, valor }]. */
 export function rosca(dados = [], opcoes = {}) {
+  validar(dados, opcoes);
   const { tamanho = 220, espessura = 36, cores } = opcoes;
   const total = dados.reduce((s, d) => s + Math.max(0, d.valor), 0) || 1;
   const r = tamanho / 2, rInt = r - espessura, cx = r, cy = r;
+  if (rInt <= 0) throw new TypeError('espessura precisa ser menor que o raio');
   let ang = -Math.PI / 2;
   const fatias = dados.map((d, i) => {
     const frac = Math.max(0, d.valor) / total;
+    if (!frac) return '';
+    if (frac === 1) return `<circle cx="${cx}" cy="${cy}" r="${r - espessura / 2}" fill="none" stroke="${cor(i, cores)}" stroke-width="${espessura}"><title>${esc(d.rotulo)}: ${esc(d.valor)}</title></circle>`;
     const fim = ang + frac * Math.PI * 2;
     const grande = fim - ang > Math.PI ? 1 : 0;
     const p = (raio, a) => `${n(cx + raio * Math.cos(a))},${n(cy + raio * Math.sin(a))}`;
@@ -81,5 +104,5 @@ export function rosca(dados = [], opcoes = {}) {
 }
 
 function svg(largura, altura, conteudo) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${n(largura)} ${n(altura)}" font-family="system-ui, sans-serif">${conteudo}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gráfico / Chart" viewBox="0 0 ${n(largura)} ${n(altura)}" font-family="system-ui, sans-serif" style="max-width:100%;height:auto;color:inherit;fill:currentColor">${conteudo}</svg>`;
 }
