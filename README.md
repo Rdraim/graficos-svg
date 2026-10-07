@@ -6,6 +6,10 @@
 
 # graficos-svg
 
+<!-- public-badges:start -->
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/graficos-svg/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/graficos-svg/releases) [![Git](assets/support/badge-git.svg)](https://github.com/Rdraim/graficos-svg/commits/main)
+<!-- public-badges:end -->
+
 ## Segurança e compatibilidade
 
 Validação anti-injeção em opções SVG, limites numéricos e rosca completa.
