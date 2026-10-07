@@ -1,21 +1,33 @@
 # graficos-svg
 
+[English (United States)](README.en-US.md) · [Apoio voluntário](SUPPORT.md)
+
+## Revisão 1.1.0
+
+Validação anti-injeção em opções SVG, limites numéricos e rosca completa.
+
+Rótulos escapados; cores e dimensões validadas. Até 10000 itens, valores finitos dentro de MAX_SAFE_INTEGER e dimensões positivas até 1000000. Barras/roscas tratam negativos como zero; linhas preservam negativos. Rosca de 100% usa círculo completo. SVG inclui papel de imagem; forneça também título contextual e tabela textual no aplicativo. A paleta sozinha não certifica acessibilidade. Use apenas o SVG gerado, sem concatenar HTML não confiável.
+
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.1.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+
 Gráficos como **SVG (string)**, sem dependência e **sem DOM**. Cada função recebe
 dados simples e devolve `<svg>…</svg>` pronto para injetar no HTML, mandar por
 e-mail, renderizar no servidor (SSR) ou usar em qualquer framework.
 
-Barras, colunas, linha e rosca. Paleta categórica acessível embutida.
+Barras, colunas, linha e rosca. Paleta categórica configurável.
 
 ## Instalação
 
 ```bash
-npm install graficos-svg
+git clone https://github.com/techrodrigo21-ux/graficos-svg.git
+cd graficos-svg
+npm test
 ```
 
 ## Uso
 
 ```js
-import { barras, colunas, linha, rosca } from 'graficos-svg';
+import { barras, colunas, linha, rosca } from './src/index.js';
 
 const dados = [{ rotulo: 'Jan', valor: 120 }, { rotulo: 'Fev', valor: 180 }];
 
@@ -60,3 +72,9 @@ npm test
 ## Licença
 
 MIT © Rodrigo Rodrigues
+
+## Manutenção e apoio
+
+Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodrigo Rodrigues. Não inclui banco, configuração privada, logs, dados de usuários ou credenciais. Evolução coordenada significa revisar mudanças relacionadas no mesmo ciclo; não há cópia automática de arquivos privados.
+
+[Como contribuir](CONTRIBUTING.md) · [Segurança](SECURITY.md) · [Apoio voluntário](SUPPORT.md)
